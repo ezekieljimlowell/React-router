@@ -1,13 +1,14 @@
-import React from "react";
+import React, { Children } from "react";
 import { BrowserRouter as Router, Routes, Link, Route } from "react-router-dom";
 import { About } from "./About";
-import { Contact } from "./Contact";
+import { Parameter } from "./Parameter";
 import { Css } from "./Css";
 import { Home } from "./Home";
 import { Html } from "./Html";
 import { JavaScript } from "./JavaScript";
 import { ReactJs } from "./ReactJs";
 import styles from './RouterComponent.module.css';
+import { ListOfContacts } from "./ListOfContacts";
 
 export const RouterComponent = () => {
 
@@ -21,9 +22,8 @@ export const RouterComponent = () => {
                     <Link to="/css" className="nav-link navbar-brand">CSS</Link>
                     <Link to="/javascript" className="nav-link navbar-brand">JavaScript</Link>
                     <Link to="/reactjs" className="nav-link navbar-brand">React JS</Link>
-                    <Link to="/contact" className="nav-link navbar-brand">Contact</Link>
+                    <Link to="/parameter" className="nav-link navbar-brand">Parameter</Link>
                 </nav >
-
                 <Routes>
                     <Route path="/" element={<Home />}></Route>
                     <Route path="/about" element={<About />}></Route>
@@ -31,7 +31,8 @@ export const RouterComponent = () => {
                     <Route path="/css" element={<Css />}></Route>
                     <Route path="/javascript" element={<JavaScript />}></Route>
                     <Route path="/reactjs" element={<ReactJs />}></Route>
-                    <Route path="/contact" element={<Contact />}></Route>
+                    <Route path="/parameter" element={<Parameter />}></Route>
+                    <Route path="/parameter/:name" element={<ListOfContacts />} />
                 </Routes>
             </Router>
         </div >

@@ -3,24 +3,26 @@ import {
     BrowserRouter as Router,
     Routes,
     Route,
-    Link,
-    useParams
+    Link
 } from "react-router-dom";
 import { ListOfContacts } from "../Router/ListOfContacts";
+import styles from '../Router/RouterComponent.module.css';
 
 export default function ParamsExample() {
     return (
         <Router>
             <div>
                 <h2>Accounts</h2>
-                <Link to="contact/rahul">Contact 1</Link>
-                <Link to="contact/vinoth">Contact 2</Link>
-                <Link to="contact/anand">Contact 3</Link>
-                <Link to="contact/ramesh">Contact 4</Link>
-                <Link to="contact/vignesh">Contact 5</Link>
+                <nav className={`navbar navbar-expand-lg navbar-light bg-success ${styles.unActivateDecoration}`}>
+                    <Link to="/contact/rahul" className="nav-link navbar-brand">Contact 1</Link>
+                    <Link to="/contact/vinoth" className="nav-link navbar-brand">Contact 2</Link>
+                    <Link to="/contact/anand" className="nav-link navbar-brand">Contact 3</Link>
+                    <Link to="/contact/ramesh" className="nav-link navbar-brand">Contact 4</Link>
+                    <Link to="/contact/vignesh" className="nav-link navbar-brand">Contact 5</Link>
+                </nav>
 
                 <Routes>
-                    <Route path="contact/:name" element={<ListOfContacts />}></Route>
+                    <Route path="/contact/:name" element={<ListOfContacts />}></Route>
                 </Routes>
             </div>
         </Router>
